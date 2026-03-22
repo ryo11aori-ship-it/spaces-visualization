@@ -28,3 +28,4 @@ jobs:
         with:
           name: result-image
           path: a.png
+
