@@ -1,0 +1,30 @@
+name: Convert spaces to PNG
+
+on:
+  push:
+    paths:
+      - 'a.spaces'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Pillow
+        run: pip install pillow
+
+      - name: Run converter
+        run: python convert.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: result-image
+          path: a.png
