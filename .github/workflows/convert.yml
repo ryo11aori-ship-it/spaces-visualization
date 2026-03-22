@@ -1,4 +1,4 @@
-name: Convert spaces to PNG
+name: Convert to square dot image
 
 on:
   push:
@@ -12,20 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install Pillow
-        run: pip install pillow
+      - run: pip install pillow
 
-      - name: Run converter
-        run: python convert.py
+      - run: python convert_square.py
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: result-image
+          name: square-image
           path: a.png
-
