@@ -16,4 +16,4 @@ jobs:
 
       - run: pip install pillow
 
-      - run: python convert_square.py
+      - run: python convert.py
